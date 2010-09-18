@@ -14,14 +14,13 @@ Requirements
 Getting Started
 ---------------
 1. Set the RTK_HOME environment variable to the directory where you unpacked epp-rtk-java distribution.
-<pre><code>
-        export RTK_HOME=&lt;path to epp-rtk&gt;
-</code></pre>
+
+<pre><code>export RTK_HOME=&lt;path to epp-rtk&gt;</code></pre>
 
 
 2. Run the example code.
 
-	./run_example.sh epp_host_name epp_host_port epp_client_id epp_password domain_name contact_id
+<pre><code>./run_example.sh epp_host_name epp_host_port epp_client_id epp_password domain_name contact_id</code></pre>
 
 
 
