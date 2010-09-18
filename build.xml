@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<project name="Cloud Registry EPP RTK Addon" default="main">
+    <target name="main" depends="compile, compress" description="Main target">
+        <echo>
+            Building the .jar file.
+        </echo>
+    </target>
+  
+    <target name="compile" description="Compilation target">
+        <javac srcdir="src/java" destdir="classes" classpath="extlib/epp-rtk-java-0.9.6/java/lib" />
+    </target>
+  
+  <target name="compress" description="Compression target">
+        <jar jarfile="lib/cloudregistry-epp-rtk-0.1.jar" basedir="classes" includes="**" />
+  </target>
+</project>
