@@ -23,6 +23,11 @@ public class LaunchPhaseExtension extends EPPXMLBase implements epp_SmartExtensi
 
 	public static final String NS_LAUNCHPHASE = "http://www.cloudregistry.net/ns/launchphase-1.0";
 	public static final String NS_XMLNS = "http://www.w3.org/2000/xmlns/";
+	public static final String CREATE_TAG = "create";
+	public static final String INFO_TAG = "info";
+	public static final String CREATE_DATA_TAG = "creData";
+	public static final String INFO_DATA_TAG = "infData";
+	
 	private String tag_;
     private String tm_name_;
     private String tm_number_;
