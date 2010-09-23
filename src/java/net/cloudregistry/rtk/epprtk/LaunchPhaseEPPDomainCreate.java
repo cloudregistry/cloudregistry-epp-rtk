@@ -34,7 +34,7 @@ public class LaunchPhaseEPPDomainCreate extends EPPDomainCreate {
 	 * @return the DOM Element corresponding to the EPP response extension
 	 * @throws epp_XMLException
 	 */
-	protected Element getExtension() throws epp_XMLException
+	public Element getExtension() throws epp_XMLException
 	{
         String method_name = "getExtension()";
         Element epp_node;
@@ -46,4 +46,5 @@ public class LaunchPhaseEPPDomainCreate extends EPPDomainCreate {
 		}
 		return LaunchPhaseEPPBase.getExtension(epp_node);
 	}
+
 }
