@@ -30,6 +30,8 @@ The ``run_example.sh`` script above executes the runnable class ``net.cloudregis
 which shows how the library can be used in conjunction with the EPP-RTK. You are encouraged to follow the sample
 to develop your application.
 
+There is a convenient wrapper ``net.cloudregistry.rtk.epprtk.LaunchPhaseCreateDomainWrapper`` for the common
+use case of creating a sunrise or land rush application. The sample code above shows how it is used.
 
 
 

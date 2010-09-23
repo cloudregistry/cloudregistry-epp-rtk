@@ -32,4 +32,10 @@ public class LaunchPhaseEPPDomainInfo extends EPPDomainInfo {
 		return LaunchPhaseEPPBase.getExtension(epp_node);
 	}
 	
+
+	public LaunchPhaseExtension getResponseLaunchPhaseExtension() throws epp_XMLException {
+		return LaunchPhaseEPPBase.getLaunchPhaseExtension(getExtension(), LaunchPhaseExtension.INFO_DATA_TAG);
+	}
+
+
 }

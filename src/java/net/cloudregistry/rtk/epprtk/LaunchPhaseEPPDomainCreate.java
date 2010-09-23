@@ -47,4 +47,18 @@ public class LaunchPhaseEPPDomainCreate extends EPPDomainCreate {
 		return LaunchPhaseEPPBase.getExtension(epp_node);
 	}
 
+	
+	public LaunchPhaseExtension getResponseLaunchPhaseExtension() throws epp_XMLException {
+		return LaunchPhaseEPPBase.getLaunchPhaseExtension(getExtension(), LaunchPhaseExtension.CREATE_DATA_TAG);
+	}
+
+	
+	public String getApplicationID() throws epp_XMLException {
+		LaunchPhaseExtension launchphaseResponse = getResponseLaunchPhaseExtension();
+		if (launchphaseResponse == null) {
+			return null;
+		}
+		
+		return launchphaseResponse.getApplicationID();
+	}
 }

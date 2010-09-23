@@ -112,4 +112,15 @@ public class LaunchPhaseEPPBase
         }
 	}
 
+	
+	public static LaunchPhaseExtension getLaunchPhaseExtension(Element extension, String containerTag) throws epp_XMLException {
+		if (extension == null) {
+			return null;
+		}
+		LaunchPhaseExtension launchphaseResponse = new LaunchPhaseExtension(containerTag);
+		launchphaseResponse.fromDOM(extension);
+		return launchphaseResponse;
+	}
+
+
 }

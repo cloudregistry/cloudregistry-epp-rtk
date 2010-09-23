@@ -11,6 +11,6 @@
     </target>
   
   <target name="compress" description="Compression target">
-        <jar jarfile="lib/cloudregistry-epp-rtk-0.1.jar" basedir="classes" includes="**" />
+        <jar jarfile="lib/cloudregistry-epp-rtk-0.2.jar" basedir="classes" includes="**" />
   </target>
 </project>
