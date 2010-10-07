@@ -17,6 +17,7 @@ public class LaunchPhaseCreateDomainWrapper {
 	protected epp_DomainPeriod period = null;
 	protected epp_AuthInfo authInfo = null;
 	protected LaunchPhaseExtension launchPhase = null;
+	protected epp_Command cmd = null;
 	public List nameservers = null;
 	public String registrantContactID = null;
 	public List contacts = null;
@@ -56,29 +57,37 @@ public class LaunchPhaseCreateDomainWrapper {
 		wrapper.setNameServers(req.m_name_servers);
 		wrapper.setRegistrantContactID(req.m_registrant);
 		wrapper.setContacts(req.m_contacts);
-		
+		wrapper.setAuthInfo(req.getAuthInfo());
+		wrapper.setCmd(req.getCmd());
 		return wrapper;
 	}
-	
-	
+
+	public LaunchPhaseEPPDomainCreate toEPPDomainCreate(){
+		if(cmd != null)
+			return toEPPDomainCreate(cmd.getClientTrid());
+		return toEPPDomainCreate(null);
+	}
+
 	public LaunchPhaseEPPDomainCreate toEPPDomainCreate(String clTRID) {
 		epp_DomainCreateReq req = new epp_DomainCreateReq();
 
-		epp_Command cmd = new epp_Command();
+		//epp_Command cmd = new epp_Command();
+		if(cmd == null) cmd = new epp_Command();
 		cmd.m_client_trid = clTRID;
 		req.m_cmd = cmd;
 		req.m_name = getDomainName();
 		req.m_period = getPeriod();
-
 		req.m_name_servers = EPPXMLBase.convertListToStringArray(getNameservers());
 
 		req.m_auth_info = getAuthInfo();
 		req.m_contacts = getContactsAsArray();
-
 		req.m_registrant = getRegistrantContactID();
 
-		req.m_cmd.m_extensions = new epp_Extension[1];
-		req.m_cmd.m_extensions[0] = this.launchPhase;
+		List<epp_Extension> extensions = new ArrayList<epp_Extension>();
+		if(cmd.getExtensions() != null && cmd.getExtensions().length > 0)
+			extensions.addAll(Arrays.asList(cmd.getExtensions()));
+		extensions.add(this.launchPhase);
+		cmd.setExtensions((epp_Extension[])extensions.toArray(new epp_Extension[0]));
 
 		LaunchPhaseEPPDomainCreate domainCreate = new LaunchPhaseEPPDomainCreate();
 		domainCreate.setRequestData(req);
@@ -241,7 +250,10 @@ public class LaunchPhaseCreateDomainWrapper {
 			this.addContact(newContacts[i]);
 		}
 	}
-	
+
+	public void setCmd(epp_Command cmd){
+		this.cmd = cmd;
+	}
 
     public void setTrademarkName(String trademarkName) {
     	this.launchPhase.setTrademarkName(trademarkName);
