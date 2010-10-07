@@ -25,6 +25,6 @@ fi
 
 java -Dssl.props.location=$RTK_HOME/java/ssl \
      -Drtk.props.file=$RTK_HOME/java/etc/rtk.properties \
-     -cp $RTK_HOME/java/lib/xerces.jar:$RTK_HOME/java/lib/epp-rtk-java.jar:$RTK_HOME/java/lib/regexp.jar:$RTK_HOME/java/lib/log4j.jar:$RTK_HOME/java/lib/bcprov-jdk14-115.jar:$CLOUDR_RTK_HOME/lib/cloudregistry-epp-rtk-0.2.jar \
+     -cp $RTK_HOME/java/lib/xerces.jar:$RTK_HOME/java/lib/epp-rtk-java.jar:$RTK_HOME/java/lib/regexp.jar:$RTK_HOME/java/lib/log4j.jar:$RTK_HOME/java/lib/bcprov-jdk14-115.jar:$CLOUDR_RTK_HOME/lib/cloudregistry-epp-rtk-0.2.1.jar \
      net.cloudregistry.rtk.epprtk.LaunchPhaseTest \
         $EPP_HOST $EPP_PORT $CLIENT_ID $PASSWORD $DOMAIN $CONTACT_ID

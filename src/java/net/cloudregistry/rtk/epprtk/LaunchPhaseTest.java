@@ -49,7 +49,7 @@ public class LaunchPhaseTest {
 				
 				LaunchPhaseCreateDomainWrapper wrapper = new LaunchPhaseCreateDomainWrapper();
 				wrapper.setDomainName(epp_domain_name);
-				wrapper.setPeriodYears(2);
+				wrapper.setPeriodYears(3);
 				wrapper.setRegistrantContactID(epp_contact_id);
 				wrapper.addNameServer("ns1.host.tld");
 				wrapper.addNameServer("ns2.host.tld");
